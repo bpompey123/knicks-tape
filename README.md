@@ -1,8 +1,8 @@
 # Knicks::Tape
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/knicks/tape`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the KnicksTape!
+This CLI provides fans of the NY Knicks the ability to know when/where their favorite team will be playing for the 2019-2020 season.
+The information will be sponsored by the official NBA-Knicks website.
 
 ## Installation
 
@@ -22,7 +22,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below and follow the on screen prompts.
+
+    $ gem install knicks-tape
+
 
 ## Development
 
