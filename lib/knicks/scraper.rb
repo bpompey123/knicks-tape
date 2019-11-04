@@ -11,7 +11,7 @@ class Scraper
   def scrape_game_index
     games = []
     self.get_page.css("div.season-list").each do |matches|
-      matches.css("div.Schedule-list-item-wrapper").each do |
+      matches.css("div.list-item-date").each do |
 
 
 
