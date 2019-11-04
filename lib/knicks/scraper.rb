@@ -8,9 +8,14 @@ class Scraper
   end
 
   def scrape_game_index
-    self.get_page.css("div.list-item-date").each do |match|
-      binding.pry
+    games = []
+    self.get_page.css("div.season-list").each do |matches|
+      matches.css("div.Schedule-list-item-wrapper").each do |
 
+
+
+
+    end
   end
 
 
