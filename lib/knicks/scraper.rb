@@ -25,8 +25,8 @@ class Scraper
 
       all_games << {date: date, time: time, opponent: opponent}
       end
-
     end
+    all_games
   end
 
 
