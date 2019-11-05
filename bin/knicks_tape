@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/knicks_tape'
+
+KnicksTape::CLI.new.call
