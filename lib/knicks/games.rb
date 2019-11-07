@@ -1,9 +1,14 @@
 class Games
-  attr_accessor :date, :time, :location, :opponent
+  attr_accessor :date, :location, :opponent
 
-  def game
-    
+  @@all = []
 
+  def initialize
+    @@all << self
+  end
+
+  def self.all
+    @@all
   end
 
 
