@@ -9,12 +9,20 @@ class KnicksTape::CLI
   def start
     puts "As an avid fan of the NY Knicks, I'm sure you can't wait to get an opportunity to watch your favorite team play"
 
-    puts "It's a long season and hopefully your availability matches one of the team's home games."
+    puts "It's a long season and hopefully your availability matches one of the team's games."
 
-    puts "Which date are you interested in attending a game?"
+    puts "Would you like to search for a game by date, location, or by opponent?"
     input = gets.strip
 
-    
+    if input == "date"
+      puts "Which date are you looking to attend?"
+    elsif input == "location"
+      puts "At which venue are you hoping to watch the Knicks play?"
+    elsif input == "opponent"
+      puts "Who would you like to see the knicks defeat? ;-)"
+    end
+
+
 
 
 
