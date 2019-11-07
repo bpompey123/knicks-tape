@@ -15,14 +15,20 @@ class KnicksTape::CLI
     input = gets.strip
 
     if input == "date"
-      puts "Which date are you looking to attend?"
+      puts "Which date are you looking to attend? Please use (Month day) format"
+      input = gets.strip
+
+
     elsif input == "location"
       puts "At which venue are you hoping to watch the Knicks play?"
+      input = gets.strip
+
     elsif input == "opponent"
       puts "Who would you like to see the knicks defeat? ;-)"
+      input = gets.strip
+
     end
-
-
+    
 
 
 
