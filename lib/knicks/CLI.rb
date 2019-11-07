@@ -28,10 +28,21 @@ class KnicksTape::CLI
       input = gets.strip
 
     end
-    
+
+  end
 
 
+  def print_by_date(date)
+    puts "The Knicks will be playing #{opponent} on date at #{location}"
+  end
 
+  def print_by_location(location)
+    puts "The Knicks will be playing #{opponent} on #{date} at location."
+
+  end
+
+  def print_by_opponent(opponent)
+    puts "The Knicks will be playing opponent on #{date} at #{location}."
   end
 
 
