@@ -16,8 +16,8 @@ class Games
     @@all
   end
 
-  def game
-
+  def game(date, location, opponent)
+    Games.new(date, location, opponent)
   end
 
   def find_by_date(date)
