@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
 class Scraper
 
   def self.list_all_games
@@ -31,15 +27,8 @@ class Scraper
         end
       end
       Games.new(date, location, opponent)
-    
+
     end
-  end
-
-
-  def game_finder
-    all_games.find { ||}
-
-
   end
 
 
