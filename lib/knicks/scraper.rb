@@ -4,15 +4,18 @@ require 'pry'
 
 class Scraper
 
-  site = "https://basketball.realgm.com/nba/teams/New-York-Knicks/20/Schedule"
+  def self.list_all_games
 
-  doc = Nokogiri::HTML(open(site))
+    site = "https://basketball.realgm.com/nba/teams/New-York-Knicks/20/Schedule"
+    doc = Nokogiri::HTML(open(site))
 
-  games = doc.css("table.basketball tbody tr")
+    games = doc.css("table.basketball tbody tr")
 
-  def list_all_games
     games.each do |match|
       all_games = []
+      date = nil
+      opponent = nil
+      location = nil
       data = match.css("td")
       data.each do |match_info|
         stat = match_info.attr("data-th")
@@ -23,10 +26,12 @@ class Scraper
         elsif stat == "Venue"
           location = match_info.css("a").text
 
-        all_games << {date: date, opponent: opponent, location: location}
+#        all_games << {date: date, opponent: opponent, location: location}
+
         end
       end
-      all_games
+      Games.new(date, location, opponent)
+    
     end
   end
 

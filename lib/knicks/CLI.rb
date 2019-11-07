@@ -1,7 +1,7 @@
 class KnicksTape::CLI
 
   def call
-    Scraper.
+    Scraper.list_all_games
     puts "Welcome to the KnicksTape!!"
     start
   end
