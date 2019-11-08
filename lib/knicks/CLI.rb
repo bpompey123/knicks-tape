@@ -1,7 +1,8 @@
 class KnicksTape::CLI
 
   def call
-    Scraper.list_all_games
+#    Scraper.list_all_games
+    Games.all
     puts "Welcome to the KnicksTape!!"
     start
   end
@@ -25,7 +26,10 @@ class KnicksTape::CLI
 
     elsif input == "opponent"
       puts "Who would you like to see the knicks defeat? ;-)"
-      input = gets.strip
+      opponent = gets.strip
+
+      print_by_opponent(opponent)
+
 
     end
 
@@ -33,16 +37,17 @@ class KnicksTape::CLI
 
 
   def print_by_date(date)
-    puts "The Knicks will be playing #{opponent} on date at #{location}"
+    puts "The Knicks will be playing #{opponent} on #{date} at #{location}"
   end
 
   def print_by_location(location)
-    puts "The Knicks will be playing #{opponent} on #{date} at location."
+    puts "The Knicks will be playing #{opponent} on #{date} at #{location}."
 
   end
 
   def print_by_opponent(opponent)
-    puts "The Knicks will be playing opponent on #{date} at #{location}."
+    self.find_by_opponent(opponent)
+    puts "The Knicks will be playing #{opponent} on #{date} at #{location}."
   end
 
 

@@ -17,18 +17,19 @@ class Games
 
   def game(date, location, opponent)
     Games.new(date, location, opponent)
+    @@all << game
   end
 
   def self.find_by_date(date)
-    self.all.find { |match| match.date == date}
+    @@all.detect { |match| match.date == date}
   end
 
   def self.find_by_opponent(opponent)
-    self.all.find { |match| match.opponent == opponent}
+    @@all.detect { |match| match.opponent == opponent}
   end
 
   def self.find_by_location(location)
-    self.all.find { |match| match.location == location}
+    @@all.detect { |match| match.location == location}
   end
 
 
