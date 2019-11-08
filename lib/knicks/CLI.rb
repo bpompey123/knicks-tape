@@ -12,7 +12,7 @@ class KnicksTape::CLI
     puts "It's a long season and hopefully your availability matches one of the team's games."
 
     puts "Would you like to search for a game by date, location, or by opponent?"
-    input = gets.strip
+    input = gets.strip.downcase
 
     if input == "date"
       puts "Which date are you looking to attend? Please use (Month day) format"

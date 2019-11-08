@@ -19,16 +19,16 @@ class Games
     Games.new(date, location, opponent)
   end
 
-  def find_by_date(date)
-    game.find { |match| match.date == date}
+  def self.find_by_date(date)
+    self.all.find { |match| match.date == date}
   end
 
-  def find_by_opponent(opponent)
-    game.find { |match| match.opponent == opponent}
+  def self.find_by_opponent(opponent)
+    self.all.find { |match| match.opponent == opponent}
   end
 
-  def find_by_location(location)
-    game.find { |match| match.location == location}
+  def self.find_by_location(location)
+    self.all.find { |match| match.location == location}
   end
 
 
