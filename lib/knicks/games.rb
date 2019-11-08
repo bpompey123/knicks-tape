@@ -29,7 +29,7 @@ class Games
   def self.find_by_opponent(opponent)
     @@all.detect { |match| match.opponent == opponent}
     chosen.each do |date, location, opponent|
-      date = #{date}, location = #{location} , opponent = #{opponent}
+      date = "#{date}", location = "#{location}" , opponent = "#{opponent}"
     end
   end
 
