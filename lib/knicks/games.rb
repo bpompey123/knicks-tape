@@ -17,7 +17,6 @@ class Games
 
   def game(date, location, opponent)
     Games.new(date, location, opponent)
-    @@all << game
   end
 
   def self.find_by_date(date)
@@ -29,7 +28,9 @@ class Games
   end
 
   def self.find_by_location(location)
-    @@all.detect { |match| match.location == location}
+    chosen = @@all.detect { |match| match.location == location}
+    chosen.each_with_index do |opponent, number|
+      opponent 
   end
 
 
