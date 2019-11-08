@@ -1,8 +1,8 @@
 class KnicksTape::CLI
 
   def call
-#    Scraper.list_all_games
-    Games.all
+    Scraper.list_all_games
+#    Games.all
     puts "Welcome to the KnicksTape!!"
     start
   end
@@ -46,8 +46,9 @@ class KnicksTape::CLI
   end
 
   def print_by_opponent(opponent)
-    Games.find_by_opponent(opponent)
-    puts "The Knicks will be playing #{opponent} on #{date} at #{location}."
+    result = Games.find_by_opponent(opponent)
+    puts "The Knicks will be playing #{opponent}."
+#    puts "Ok"
   end
 
 
