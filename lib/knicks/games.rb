@@ -21,16 +21,23 @@ class Games
 
   def self.find_by_date(date)
     @@all.detect { |match| match.date == date}
+    chosen.each do |date, location, opponent|
+      date = #{date}, location = #{location} , opponent = #{opponent}
+    end
   end
 
   def self.find_by_opponent(opponent)
     @@all.detect { |match| match.opponent == opponent}
+    chosen.each do |date, location, opponent|
+      date = #{date}, location = #{location} , opponent = #{opponent}
+    end
   end
 
   def self.find_by_location(location)
     chosen = @@all.detect { |match| match.location == location}
-    chosen.each_with_index do |opponent, number|
-      opponent 
+    chosen.each do |date, location, opponent|
+      date = #{date}, location = #{location} , opponent = #{opponent}
+    end
   end
 
 
