@@ -27,21 +27,16 @@ class Games
   end
 
   def self.find_by_opponent(opponent)
-    chosen = @@all.map { |match| match.opponent == opponent}
-#    binding.pry
-    chosen.each do |date, location, opponent|
-      date = "#{date}", location = "#{location}" , opponent = "#{opponent}"
-    end
-    date = chosen[0]
-    location = chosen[1]
-    opponent = chosen[2]
+    @@all.detect { |match| match.opponent == opponent}
+    binding.pry
+    date =
+    location=
+    opponent=
   end
 
   def self.find_by_location(location)
     chosen = @@all.detect { |match| match.location == location}
-#    chosen.each do |date, location, opponent|
-#      date = "#{date}", location = "#{location}" , opponent = "#{opponent}"
-#    end
+
   end
 
 

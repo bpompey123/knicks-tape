@@ -46,7 +46,7 @@ class KnicksTape::CLI
   end
 
   def print_by_opponent(opponent)
-    result = Games.find_by_opponent(opponent)
+    chosen = Games.find_by_opponent(opponent)
     puts "The Knicks will be playing #{opponent}."
 #    puts "Ok"
   end
