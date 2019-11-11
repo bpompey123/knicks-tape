@@ -47,7 +47,7 @@ class KnicksTape::CLI
 
   def print_by_opponent(opponent)
     Games.find_by_opponent(opponent)
-    puts "The Knicks will be playing #{opponent}."
+    puts "The Knicks will be playing #{opponent} on #{opponent.date}."
 #    puts "Ok"
   end
 
