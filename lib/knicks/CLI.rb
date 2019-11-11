@@ -17,12 +17,17 @@ class KnicksTape::CLI
 
     if input == "date"
       puts "Which date are you looking to attend? Please use (Month day) format"
-      input = gets.strip
+      date = gets.strip
+
+      print_by_date(date)
 
 
     elsif input == "location"
       puts "At which venue are you hoping to watch the Knicks play?"
-      input = gets.strip
+      location = gets.strip
+
+      print_by_location(location)
+
 
     elsif input == "opponent"
       puts "Who would you like to see the knicks defeat? ;-)"
@@ -37,18 +42,20 @@ class KnicksTape::CLI
 
 
   def print_by_date(date)
-    puts "The Knicks will be playing #{opponent} on #{date} at #{location}"
+    chosen = Games.find_by_date(date)
+    puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
   end
 
   def print_by_location(location)
-    puts "The Knicks will be playing #{opponent} on #{date} at #{location}."
+    chosen = Games.find_by_location(location)
+    puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
+
 
   end
 
   def print_by_opponent(opponent)
-    Games.find_by_opponent(opponent)
-    puts "The Knicks will be playing #{opponent} on #{opponent.date}."
-#    puts "Ok"
+    chosen = Games.find_by_opponent(opponent)
+    puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
   end
 
 
