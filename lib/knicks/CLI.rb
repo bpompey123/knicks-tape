@@ -3,7 +3,7 @@ class KnicksTape::CLI
   def call
     Scraper.list_all_games
 #    Games.all
-    puts "Welcome to the KnicksTape!!"
+    puts "--------------Welcome to the KnicksTape!!------------------"
     start
   end
 
@@ -16,10 +16,13 @@ class KnicksTape::CLI
     input = gets.strip.downcase
 
     if input == "date"
-      puts "Which date are you looking to attend? Please use (Month day) format"
+      puts "Which date are you looking to attend? Please use  format"
       date = gets.strip
+  #    d = DateTime.parse('#{date}')
+  #    d.strftime("%b %-d, %Y")
 
       print_by_date(date)
+
 
 
     elsif input == "location"
@@ -29,12 +32,13 @@ class KnicksTape::CLI
       print_by_location(location)
 
 
+
+
     elsif input == "opponent"
       puts "Who would you like to see the knicks defeat? ;-)"
       opponent = gets.strip
 
       print_by_opponent(opponent)
-
 
     end
 
@@ -56,6 +60,7 @@ class KnicksTape::CLI
   def print_by_opponent(opponent)
     chosen = Games.find_by_opponent(opponent)
     puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
+
   end
 
 
