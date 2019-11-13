@@ -22,6 +22,8 @@ class KnicksTape::CLI
       d = DateTime.parse(date)
       d.strftime("%b %-d, %Y")
 
+
+
       print_by_date(date)
 
       puts "---------------------------------------------------------------------------------------------------------"
@@ -62,8 +64,12 @@ class KnicksTape::CLI
 
 
   def print_by_date(date)
-    chosen = Games.find_by_date(date)
-    puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
+    if Games.all.include?(date)
+      chosen = Games.find_by_date(date)
+      puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
+    elsif
+      puts "Sorry the Knicks aren't playing that day!"
+    end
   end
 
   def print_by_location(location)
