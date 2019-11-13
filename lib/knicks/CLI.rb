@@ -18,8 +18,8 @@ class KnicksTape::CLI
     if input == "date"
       puts "Which date are you looking to attend? Please use  format"
       date = gets.strip
-  #    d = DateTime.parse('#{date}')
-  #    d.strftime("%b %-d, %Y")
+      d = DateTime.parse(date)
+      d.strftime("%b %-d, %Y")
 
       print_by_date(date)
 
@@ -47,6 +47,7 @@ class KnicksTape::CLI
 
   def print_by_date(date)
     chosen = Games.find_by_date(date)
+    binding.pry
     puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
   end
 
