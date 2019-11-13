@@ -16,12 +16,16 @@ class KnicksTape::CLI
     input = gets.strip.downcase
 
     if input == "date"
-      puts "Which date are you looking to attend? Please use  format"
+      puts "Which date are you looking to attend? Please use (Month day, year) format"
       date = gets.strip
       d = DateTime.parse(date)
       d.strftime("%b %-d, %Y")
 
       print_by_date(date)
+
+      puts "-----------------------------------------------------------------"
+      puts "If you're looking to buy tickets, head to https://www.stubhub.com"
+      puts "-----------------------------------------------------------------"
 
 
 
@@ -30,6 +34,10 @@ class KnicksTape::CLI
       location = gets.strip
 
       print_by_location(location)
+
+      puts "-----------------------------------------------------------------"
+      puts "If you're looking to buy tickets, head to https://www.stubhub.com"
+      puts "-----------------------------------------------------------------"
 
 
 
@@ -40,6 +48,10 @@ class KnicksTape::CLI
 
       print_by_opponent(opponent)
 
+      puts "-----------------------------------------------------------------"
+      puts "If you're looking to buy tickets, head to https://www.stubhub.com"
+      puts "-----------------------------------------------------------------"
+
     end
 
   end
@@ -47,20 +59,20 @@ class KnicksTape::CLI
 
   def print_by_date(date)
     chosen = Games.find_by_date(date)
-    binding.pry
     puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
   end
 
   def print_by_location(location)
     chosen = Games.find_by_location(location)
-    puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
+
+    puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
 
 
   end
 
   def print_by_opponent(opponent)
     chosen = Games.find_by_opponent(opponent)
-    puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
+    puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
 
   end
 

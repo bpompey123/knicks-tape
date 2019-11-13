@@ -25,13 +25,13 @@ class Games
 
   def self.find_by_opponent(opponent)
     chosen = @@all.detect { |match| match.opponent == opponent}
+  #  binding.pry
   end
 
   def self.find_by_location(location)
     chosen = @@all.detect { |match| match.location == location}
-
+#    binding.pry
   end
-
 
 
 end
