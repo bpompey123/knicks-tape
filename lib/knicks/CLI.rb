@@ -8,6 +8,7 @@ class KnicksTape::CLI
   end
 
   def start
+    puts "---------------------------------------------------------------------------------------------------------------"
     puts "As an avid fan of the NY Knicks, I'm sure you can't wait to get an opportunity to watch your favorite team play"
 
     puts "It's a long season and hopefully your availability matches one of the team's games."
@@ -23,9 +24,9 @@ class KnicksTape::CLI
 
       print_by_date(date)
 
-      puts "-----------------------------------------------------------------"
-      puts "If you're looking to buy tickets, head to https://www.stubhub.com"
-      puts "-----------------------------------------------------------------"
+      puts "---------------------------------------------------------------------------------------------------------"
+      puts "If you're looking to buy tickets, head to https://www.stubhub.com/new-york-knicks-tickets/performer/2742/"
+      puts "---------------------------------------------------------------------------------------------------------"
 
 
 
@@ -35,9 +36,9 @@ class KnicksTape::CLI
 
       print_by_location(location)
 
-      puts "-----------------------------------------------------------------"
-      puts "If you're looking to buy tickets, head to https://www.stubhub.com"
-      puts "-----------------------------------------------------------------"
+      puts "---------------------------------------------------------------------------------------------------------"
+      puts "If you're looking to buy tickets, head to https://www.stubhub.com/new-york-knicks-tickets/performer/2742/"
+      puts "---------------------------------------------------------------------------------------------------------"
 
 
 
@@ -48,10 +49,13 @@ class KnicksTape::CLI
 
       print_by_opponent(opponent)
 
-      puts "-----------------------------------------------------------------"
-      puts "If you're looking to buy tickets, head to https://www.stubhub.com"
-      puts "-----------------------------------------------------------------"
+      puts "---------------------------------------------------------------------------------------------------------"
+      puts "If you're looking to buy tickets, head to https://www.stubhub.com/new-york-knicks-tickets/performer/2742/"
+      puts "---------------------------------------------------------------------------------------------------------"
 
+    else
+      puts "Error: Invalid entry, try again..."
+      start
     end
 
   end
