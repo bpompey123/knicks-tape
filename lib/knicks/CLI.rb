@@ -45,7 +45,11 @@ class KnicksTape::CLI
     if Games.find_by_date(date)
       chosen = Games.find_by_date(date)
       puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
-      buy_a_ticket
+      if chosen.location == "Madison Square Garden"
+        buy_a_ticket
+      else
+        buy_an_away_ticket
+      end
 
     else
       puts "Sorry the Knicks aren't playing that day! Maybe try another date?(y/n)"
@@ -64,7 +68,11 @@ class KnicksTape::CLI
       chosen = Games.find_by_location(location)
 
       puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
-      buy_a_ticket
+      if chosen.location == "Madison Square Garden"
+        buy_a_ticket
+      else
+        buy_an_away_ticket
+      end
 
     else
       puts "The Knicks aren't playing there this year. Would you like to try another venue?(y/n)"
@@ -83,8 +91,11 @@ class KnicksTape::CLI
     if Games.find_by_opponent(opponent)
       chosen = Games.find_by_opponent(opponent)
       puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
-
-      buy_a_ticket
+      if chosen.location == "Madison Square Garden"
+        buy_a_ticket
+      else
+        buy_an_away_ticket
+      end
     else
       puts "The Knicks won't get to beat those guys this year. Would you like to try another opponent(y/n)?"
       input = gets.strip
@@ -101,6 +112,13 @@ class KnicksTape::CLI
     puts "---------------------------------------------------------------------------------------------------------"
     puts "If you're looking to buy tickets, head to https://www.stubhub.com/new-york-knicks-tickets/performer/2742/"
     puts "---------------------------------------------------------------------------------------------------------"
+  end
+
+  def buy_an_away_ticket
+    puts "---------------------------------------------------------------------------------------------------------------"
+    puts "                               Looks like this is an away game.                                                "
+    puts "If you're still looking to buy tickets, head to https://www.stubhub.com/new-york-knicks-tickets/performer/2742/"
+    puts "---------------------------------------------------------------------------------------------------------------"
   end
 
 end
