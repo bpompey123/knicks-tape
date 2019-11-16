@@ -1,9 +1,8 @@
 class KnicksTape::CLI
 
   def call
-    Scraper.list_all_games
-
     puts "--------------Welcome to the KnicksTape!!------------------"
+    Scraper.list_all_games
     start
   end
 
@@ -19,10 +18,10 @@ class KnicksTape::CLI
     if input == "date"
       puts "Which date are you looking to attend? Please use (Month day, year) format"
       date = gets.strip
-      d = DateTime.parse(date)
-      d.strftime("%b %-d, %Y")
+  #    d = DateTime.parse(date)
+  #    d.strftime("%b %-d, %Y")
 
-      print_by_date(date)
+    print_by_date(date)
 
     elsif input == "location"
       puts "At which venue are you hoping to watch the Knicks play?"
@@ -42,68 +41,36 @@ class KnicksTape::CLI
 
 
   def print_by_date(date)
-    if Games.find_by_date(date)
-      chosen = Games.find_by_date(date)
-      puts "The Knicks will be playing #{chosen.opponent} on #{chosen.date} at #{chosen.location}."
-      if chosen.location == "Madison Square Garden"
-        buy_a_ticket
-      else
-        buy_an_away_ticket
-      end
-
+    chosen = Games.find_by_date(date)
+    if chosen
+      show_game(chosen)
     else
       puts "Sorry the Knicks aren't playing that day! Maybe try another date?(y/n)"
-      input = gets.strip
-      if input == "y"
-        start
-      else
-        "Have a good day!"
-      end
+      goodbye
 
     end
   end
 
   def print_by_location(location)
-    if Games.find_by_location(location)
-      chosen = Games.find_by_location(location)
-
-      puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
-      if chosen.location == "Madison Square Garden"
-        buy_a_ticket
-      else
-        buy_an_away_ticket
-      end
-
+    chosen = Games.find_by_location(location)
+    if chosen
+      show_game(chosen)
     else
       puts "The Knicks aren't playing there this year. Would you like to try another venue?(y/n)"
-      input = gets.strip
-      if input == "y"
-        start
-      else
-        "Have a good day!"
-      end
+      goodbye
 
     end
 
   end
 
   def print_by_opponent(opponent)
-    if Games.find_by_opponent(opponent)
-      chosen = Games.find_by_opponent(opponent)
-      puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
-      if chosen.location == "Madison Square Garden"
-        buy_a_ticket
-      else
-        buy_an_away_ticket
-      end
+    chosen = Games.find_by_opponent(opponent)
+
+    if chosen
+      show_game(chosen)
     else
       puts "The Knicks won't get to beat those guys this year. Would you like to try another opponent(y/n)?"
-      input = gets.strip
-      if input == "y"
-        start
-      else
-        "Have a good day!"
-      end
+      goodbye
 
     end
   end
@@ -119,6 +86,24 @@ class KnicksTape::CLI
     puts "                               Looks like this is an away game.                                                "
     puts "If you're still looking to buy tickets, head to https://www.stubhub.com/new-york-knicks-tickets/performer/2742/"
     puts "---------------------------------------------------------------------------------------------------------------"
+  end
+
+  def show_game(chosen)
+    puts "The Knicks will be playing #{chosen.opponent} for the first time on #{chosen.date} at #{chosen.location}."
+    if chosen.location == "Madison Square Garden"
+      buy_a_ticket
+    else
+      buy_an_away_ticket
+    end
+  end
+
+  def goodbye
+    input = gets.strip
+    if input == "y"
+      start
+    else
+      puts "Have a good day!"
+    end
   end
 
 end
