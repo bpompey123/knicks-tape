@@ -5,7 +5,7 @@ class Games
   @@all = []
 
   def initialize(date, location, opponent)
-    @date= date
+    @date= Date.parse(date)
     @location= location
     @opponent= opponent
     @@all << self
@@ -20,17 +20,15 @@ class Games
   end
 
   def self.find_by_date(date)
-    chosen = @@all.detect { |match| match.date == date}
+    all.detect { |match| match.date == date}
   end
 
   def self.find_by_opponent(opponent)
-    chosen = @@all.detect { |match| match.opponent == opponent}
-  #  binding.pry
+    all.select { |match| match.opponent == opponent}
   end
 
   def self.find_by_location(location)
-    chosen = @@all.detect { |match| match.location == location}
-#    binding.pry
+    all.detect { |match| match.location == location}
   end
 
 
