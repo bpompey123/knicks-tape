@@ -20,7 +20,6 @@ class KnicksTape::CLI
       date = gets.strip
       d = Date.parse(date)
 
-  #    binding.pry
     print_by_date(d)
 
     elsif input == "location"
@@ -103,7 +102,6 @@ class KnicksTape::CLI
     else
       buy_an_away_ticket
     end
-#    anything_else
   end
 
   def goodbye
